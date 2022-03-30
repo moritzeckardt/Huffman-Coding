@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Huffman {
-
 	public int[] characterHistogram(String s) {
 		// Only ASCII
 		int[] histogram = new int[256];
@@ -49,8 +48,6 @@ public class Huffman {
 			return new HashMap<>();
 		}
 
-		// Soll, falls PriorityQueue nur ein Element enth?lt, z.B der Buchsttabe "a" so -> 'a': oder so -> 'a': 0 dargestellt werden?
-		// Hierbei war ich mir unsicher. Deswegen habe ich diese extra Abfrage miteingebaut. Ich hoffe, dass das in Ordnung ist.
 		if (priorityQueue.size() == 1) {
 			Map<Character, String> output = new HashMap<>();
 			priorityQueue.remove().getSymbolCodes("0", output);
@@ -125,7 +122,7 @@ public class Huffman {
 
 	public static void main(String[] args) {
 		Huffman h = new Huffman();
-		String s = "adaaaaaaadwwwwwwdsddddddddassstthzhzjjjjjjjj";
+		String s = "adaaaaa";
 		Map<Character, String> map = h.huffmanCode(s);
 		h.printHuffmanCoding(map);
 		float cr = h.computeCompressionRatio(s, map);
